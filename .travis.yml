@@ -37,9 +37,10 @@ after_success:
   # Publish new Todo App Chart
   - git config --global user.email "travis@travis-ci.org"
   - git config --global user.name "Travis CI"
-  - git add .
+  - git add index.yaml
+  - git add todo-*.tgz
   - git status
-  - git commit --message "Travis CI build: $TRAVIS_BUILD_NUMBER"
+  - git commit -m "Travis CI build: ${TRAVIS_BUILD_NUMBER}"
   - git remote add origin-pages https://${GITHUB_TOKEN}@github.com/gravitonian/helm-charts.git > /dev/null 2>&1
   - git push --quiet --set-upstream origin-pages gh-pages
 
