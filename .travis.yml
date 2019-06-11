@@ -1,10 +1,6 @@
 dist: trusty
 sudo: false
 
-branches:
-  only:
-    - gh-pages
-
 # Install Helm and Kubeval
 before_install:
   - wget https://kubernetes-helm.storage.googleapis.com/helm-v2.13.1-linux-amd64.tar.gz
