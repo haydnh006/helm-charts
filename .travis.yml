@@ -19,7 +19,7 @@ before_install:
 
 env:
   # Which K8s version are we going to validate against
-  - KUBERNETES_VERSION="1.10.11"
+  - KUBERNETES_VERSION="1.10.9"
 
 # Run some tests
 script:
