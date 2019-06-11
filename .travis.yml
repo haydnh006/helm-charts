@@ -1,6 +1,10 @@
 dist: trusty
 sudo: false
 
+branches:
+  only:
+    - gh-pages
+
 # Install Helm and Kubeval
 before_install:
   - wget https://kubernetes-helm.storage.googleapis.com/helm-v2.13.1-linux-amd64.tar.gz
@@ -26,16 +30,17 @@ script:
   - helm template charts/todo --output-dir manifests
   - find manifests/ -name '*.yaml' | grep -v crd | xargs kubeval -v $KUBERNETES_VERSION
 
-# Build Todo App Chart and update Chart Index
 after_success:
+  # Build Todo App Chart and update Chart Index
   - helm package charts/todo
   - helm repo index --url https://gravitonian.github.io/helm-charts .
+  # Publish new Todo App Chart
+  - git config --global user.email "travis@travis-ci.org"
+  - git config --global user.name "Travis CI"
+  - git add .
+  - git status
+  - git commit --message "Travis CI build: $TRAVIS_BUILD_NUMBER"
+  - git remote add origin-pages https://${GITHUB_TOKEN}@github.com/gravitonian/helm-charts.git > /dev/null 2>&1
+  - git push --quiet --set-upstream origin-pages gh-pages
 
-# Publish new Todo App Chart
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
-  keep_history: true
-  on:
-    branch: master
+
