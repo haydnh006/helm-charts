@@ -10,7 +10,7 @@ replicas:
   todoProxy: 2
   todoRabbitmq: 1
   todoRedis: 1
-  todoSearchIngestion: 1
+  todoSearchIngestion: 2
   todoSearchService: 2
   todoStorageIngestion: 1
   todoStorageService: 2
