@@ -3,11 +3,11 @@ entries:
   todo:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-06-16T06:16:47.57517921Z
+    created: 2019-06-16T13:37:27.451420098Z
     description: A Helm chart for the Todo App Solution
-    digest: 3f839d96334a9769456bbeb10743396257dc0c11d5254f787b912fd26f3fcc36
+    digest: e11b24f004380c6fa42e3f935b9e2f09e206d443c9023de4ad30bf62a9d2d5ad
     name: todo
     urls:
     - https://gravitonian.github.io/helm-charts/todo-0.1.0.tgz
     version: 0.1.0
-generated: 2019-06-16T06:16:47.573980485Z
+generated: 2019-06-16T13:37:27.450201189Z
