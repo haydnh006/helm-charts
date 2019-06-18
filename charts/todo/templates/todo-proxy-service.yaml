@@ -10,7 +10,7 @@ spec:
   selector:
     todo-app-pod: todo-proxy
   ports:
-  - name: "8080"
-    port: 8080
+  - name: "http"
+    port: {{ .Values.services.todoProxy.port }}
     targetPort: 80
 
