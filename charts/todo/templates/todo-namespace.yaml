@@ -1,4 +1,4 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: {{ template "todo.fullname" . }}
+  name: {{ template "todo.fullname" . }}-todo

@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  namespace: {{ template "todo.fullname" . }}
+  namespace: {{ template "todo.fullname" . }}-todo
   name: todo-cache-ingestion
   labels:
     todo-app-deployment: todo-cache-ingestion
